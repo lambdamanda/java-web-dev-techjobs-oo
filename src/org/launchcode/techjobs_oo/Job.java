@@ -51,6 +51,24 @@ public class Job {
         return Objects.hash(id);
     }
 
+    @Override
+    public String toString(){
+        return "\n" + "ID: " + getId() + "\n"
+                + "Name: " + dataNotAvailable(getName()) + "\n"
+                + "Employer: " + dataNotAvailable(getEmployer()) + "\n"
+                + "Location: " + dataNotAvailable(getLocation()) + "\n"
+                + "Position Type: " + dataNotAvailable(getPositionType()) + "\n"
+                + "Core Competency: " + dataNotAvailable(getCoreCompetency()) + "\n";
+    }
+
+    public String dataNotAvailable(Object field){
+        if (field != null) {
+            return field.toString();
+        } else {
+            return "Data not available";
+        }
+    }
+
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.

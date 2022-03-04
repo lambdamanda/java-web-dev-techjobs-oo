@@ -57,4 +57,35 @@ public class JobTest {
 
       Assert.assertNotEquals(fakeJob1, fakeJob2);
    }
+
+   @Test
+   public void testToString(){
+      Employer employer = new Employer("ACME");
+      Location location = new Location("Desert");
+      PositionType positionType = new PositionType("Quality control");
+      CoreCompetency coreCompetency = new CoreCompetency("Persistence");
+
+      Job jobTestToString = new Job("Product tester", employer, location, positionType, coreCompetency);
+
+      String jobString = jobTestToString.toString();
+      Assert.assertTrue("starts with a new line", jobString.startsWith("\n"));
+      Assert.assertTrue("ends with a new line", jobString.endsWith("\n"));
+      Assert.assertTrue(jobString.contains("ID: " + jobTestToString.getId()));
+      Assert.assertTrue(jobString.contains("Name: " + jobTestToString.getName()));
+      Assert.assertTrue(jobString.contains("Employer: " + jobTestToString.getEmployer()));
+      Assert.assertTrue(jobString.contains("Location: " + jobTestToString.getLocation()));
+      Assert.assertTrue(jobString.contains("Position Type: " + jobTestToString.getPositionType()));
+      Assert.assertTrue(jobString.contains("Core Competency: " + jobTestToString.getCoreCompetency()));
+   }
+
+   @Test
+   public void testDataPresent(){
+      String job1Display = job1.toString();
+      Assert.assertTrue(job1Display.contains("Name: Data not available"));
+      Assert.assertTrue(job1Display.contains("Employer: Data not available"));
+      Assert.assertTrue(job1Display.contains("Location: Data not available"));
+      Assert.assertTrue(job1Display.contains("Position Type: Data not available"));
+      Assert.assertTrue(job1Display.contains("Core Competency: Data not available"));
+   }
+
 }
