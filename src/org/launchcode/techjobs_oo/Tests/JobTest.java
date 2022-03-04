@@ -88,4 +88,11 @@ public class JobTest {
       Assert.assertTrue(job1Display.contains("Core Competency: Data not available"));
    }
 
+   @Test
+   public void testBlankString(){
+      job1.setName("");
+      String job1Display = job1.toString();
+      Assert.assertTrue(job1Display.contains("Name: Data not available"));
+
+   }
 }

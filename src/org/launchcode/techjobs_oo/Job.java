@@ -62,7 +62,7 @@ public class Job {
     }
 
     public String dataNotAvailable(Object field){
-        if (field != null) {
+        if (field != null && !field.toString().equals("")) {
             return field.toString();
         } else {
             return "Data not available";
